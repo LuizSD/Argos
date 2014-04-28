@@ -1,0 +1,139 @@
+﻿namespace Argos_Desktop
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.buttonApagador1 = new System.Windows.Forms.Button();
+            this.lampada2 = new System.Windows.Forms.Label();
+            this.lampada1 = new System.Windows.Forms.Label();
+            this.lampada3 = new System.Windows.Forms.Label();
+            this.buttonApagador2 = new System.Windows.Forms.Button();
+            this.buttonApagador3 = new System.Windows.Forms.Button();
+            this.buttonDesliga = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // buttonApagador1
+            // 
+            this.buttonApagador1.Location = new System.Drawing.Point(12, 12);
+            this.buttonApagador1.Name = "buttonApagador1";
+            this.buttonApagador1.Size = new System.Drawing.Size(75, 23);
+            this.buttonApagador1.TabIndex = 0;
+            this.buttonApagador1.Text = "Apagador 1";
+            this.buttonApagador1.UseVisualStyleBackColor = true;
+            this.buttonApagador1.Click += new System.EventHandler(this.buttonApagador1_Click);
+            // 
+            // lampada2
+            // 
+            this.lampada2.AutoSize = true;
+            this.lampada2.Location = new System.Drawing.Point(109, 60);
+            this.lampada2.Name = "lampada2";
+            this.lampada2.Size = new System.Drawing.Size(13, 13);
+            this.lampada2.TabIndex = 1;
+            this.lampada2.Text = "0";
+            // 
+            // lampada1
+            // 
+            this.lampada1.AutoSize = true;
+            this.lampada1.Location = new System.Drawing.Point(109, 17);
+            this.lampada1.Name = "lampada1";
+            this.lampada1.Size = new System.Drawing.Size(13, 13);
+            this.lampada1.TabIndex = 2;
+            this.lampada1.Text = "0";
+            // 
+            // lampada3
+            // 
+            this.lampada3.AutoSize = true;
+            this.lampada3.Location = new System.Drawing.Point(109, 103);
+            this.lampada3.Name = "lampada3";
+            this.lampada3.Size = new System.Drawing.Size(13, 13);
+            this.lampada3.TabIndex = 3;
+            this.lampada3.Text = "0";
+            // 
+            // buttonApagador2
+            // 
+            this.buttonApagador2.Location = new System.Drawing.Point(12, 55);
+            this.buttonApagador2.Name = "buttonApagador2";
+            this.buttonApagador2.Size = new System.Drawing.Size(75, 23);
+            this.buttonApagador2.TabIndex = 4;
+            this.buttonApagador2.Text = "Apagador 2";
+            this.buttonApagador2.UseVisualStyleBackColor = true;
+            this.buttonApagador2.Click += new System.EventHandler(this.buttonApagador2_Click);
+            // 
+            // buttonApagador3
+            // 
+            this.buttonApagador3.Location = new System.Drawing.Point(12, 98);
+            this.buttonApagador3.Name = "buttonApagador3";
+            this.buttonApagador3.Size = new System.Drawing.Size(75, 23);
+            this.buttonApagador3.TabIndex = 5;
+            this.buttonApagador3.Text = "Apagador 3";
+            this.buttonApagador3.UseVisualStyleBackColor = true;
+            this.buttonApagador3.Click += new System.EventHandler(this.buttonApagador3_Click);
+            // 
+            // buttonDesliga
+            // 
+            this.buttonDesliga.Location = new System.Drawing.Point(236, 110);
+            this.buttonDesliga.Name = "buttonDesliga";
+            this.buttonDesliga.Size = new System.Drawing.Size(75, 23);
+            this.buttonDesliga.TabIndex = 6;
+            this.buttonDesliga.Text = "Desligar";
+            this.buttonDesliga.UseVisualStyleBackColor = true;
+            this.buttonDesliga.Click += new System.EventHandler(this.buttonDesliga_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(323, 145);
+            this.Controls.Add(this.buttonDesliga);
+            this.Controls.Add(this.buttonApagador3);
+            this.Controls.Add(this.buttonApagador2);
+            this.Controls.Add(this.lampada3);
+            this.Controls.Add(this.lampada1);
+            this.Controls.Add(this.lampada2);
+            this.Controls.Add(this.buttonApagador1);
+            this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Arduino";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button buttonApagador1;
+        private System.Windows.Forms.Label lampada2;
+        private System.Windows.Forms.Label lampada1;
+        private System.Windows.Forms.Label lampada3;
+        private System.Windows.Forms.Button buttonApagador2;
+        private System.Windows.Forms.Button buttonApagador3;
+        private System.Windows.Forms.Button buttonDesliga;
+    }
+}
+
