@@ -28,9 +28,6 @@ namespace ArgosDesktop.Models
             if (command == null)
                 throw new ArgumentNullException("command");
 
-            if (command.Length != 3)
-                throw new Exception("Invalid command length.");
-
             _command = command;
         }
 

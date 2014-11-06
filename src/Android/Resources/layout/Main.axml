@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:minWidth="25px"
+    p1:minHeight="25px"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/tableLayout1">
+    <TableRow
+        p1:id="@+id/tableRow1">
+        <ImageButton
+            p1:src="@drawable/lamp_off"
+            p1:layout_column="0"
+            p1:id="@+id/imageButton1" />
+        <ImageView
+            p1:src="@drawable/janela_off"
+            p1:layout_column="1"
+            p1:id="@+id/imageView1" />
+        <ImageView
+            p1:src="@drawable/porta_off"
+            p1:layout_column="2"
+            p1:id="@+id/imageView2" />
+    </TableRow>
+    <TableRow
+        p1:id="@+id/tableRow2">
+        <ImageButton
+            p1:src="@drawable/lamp_off"
+            p1:layout_column="0"
+            p1:id="@+id/imageButton2" />
+        <ImageView
+            p1:src="@drawable/janela_off"
+            p1:layout_column="1"
+            p1:id="@+id/imageView3" />
+        <ImageView
+            p1:src="@drawable/porta_off"
+            p1:layout_column="2"
+            p1:id="@+id/imageView4" />
+    </TableRow>
+    <TableRow
+        p1:id="@+id/tableRow3">
+        <ImageButton
+            p1:src="@drawable/lamp_off"
+            p1:layout_column="0"
+            p1:id="@+id/imageButton3" />
+        <ImageView
+            p1:src="@drawable/janela_off"
+            p1:layout_column="1"
+            p1:id="@+id/imageView5" />
+        <ImageView
+            p1:src="@drawable/porta_off"
+            p1:layout_column="2"
+            p1:id="@+id/imageView6" />
+    </TableRow>
+</TableLayout>

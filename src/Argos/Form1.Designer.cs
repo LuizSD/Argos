@@ -49,6 +49,9 @@
             this.picturePorta3 = new System.Windows.Forms.PictureBox();
             this.pictureLamp3 = new System.Windows.Forms.PictureBox();
             this.pictureBackground = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.temperaturaBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupQuarto1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureJanela1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePorta1)).BeginInit();
@@ -62,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picturePorta3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLamp3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonApagador1
@@ -138,7 +142,7 @@
             // 
             // picturePorta1
             // 
-            this.picturePorta1.Location = new System.Drawing.Point(163, 17);
+            this.picturePorta1.Location = new System.Drawing.Point(166, 19);
             this.picturePorta1.Name = "picturePorta1";
             this.picturePorta1.Size = new System.Drawing.Size(50, 78);
             this.picturePorta1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -259,18 +263,46 @@
             this.pictureBackground.BackColor = System.Drawing.Color.Transparent;
             this.pictureBackground.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBackground.Image = ((System.Drawing.Image)(resources.GetObject("pictureBackground.Image")));
-            this.pictureBackground.Location = new System.Drawing.Point(0, 250);
+            this.pictureBackground.Location = new System.Drawing.Point(0, 153);
             this.pictureBackground.Name = "pictureBackground";
-            this.pictureBackground.Size = new System.Drawing.Size(722, 224);
+            this.pictureBackground.Size = new System.Drawing.Size(722, 248);
             this.pictureBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBackground.TabIndex = 14;
             this.pictureBackground.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.temperaturaBox);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(522, 156);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Outros";
+            // 
+            // temperaturaBox
+            // 
+            this.temperaturaBox.Location = new System.Drawing.Point(79, 19);
+            this.temperaturaBox.Name = "temperaturaBox";
+            this.temperaturaBox.Size = new System.Drawing.Size(52, 20);
+            this.temperaturaBox.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Temperatura:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 474);
+            this.ClientSize = new System.Drawing.Size(722, 401);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupQuarto3);
             this.Controls.Add(this.groupQuarto2);
             this.Controls.Add(this.groupQuarto1);
@@ -296,6 +328,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picturePorta3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLamp3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBackground)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -322,6 +356,9 @@
         private System.Windows.Forms.Label labelLamp1;
         private System.Windows.Forms.Label labelLamp2;
         private System.Windows.Forms.Label labelLamp3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox temperaturaBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 

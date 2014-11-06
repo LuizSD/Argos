@@ -11,7 +11,7 @@ namespace ArgosDesktop
 {
     public partial class Form1 : Form
     {
-        private readonly SerialPort _porta = new SerialPort("COM3", 9600) { ReceivedBytesThreshold = 3 };
+        private readonly SerialPort _porta = new SerialPort("COM5", 9600) { ReceivedBytesThreshold = 3 };
         private readonly BackgroundWorker _worker = new BackgroundWorker();
         private readonly System.Timers.Timer _timer = new System.Timers.Timer();
         private IHubProxy _arduinoHubProxy;
@@ -20,12 +20,12 @@ namespace ArgosDesktop
         {
             InitializeComponent();
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             ConnectToHub();
 
-            _timer.Interval = 1000;
+            _timer.Interval = 100;
             _timer.Elapsed += TimerElapsed;
             _porta.DataReceived += DataReceivedHandler;
             _worker.DoWork += DoWork;
@@ -36,7 +36,7 @@ namespace ArgosDesktop
 
         void ConnectToHub()
         {
-            var hubConnection = new HubConnection("http://localhost:7030/");
+            var hubConnection = new HubConnection("http://localhost/ArduinoSignalR/");
             _arduinoHubProxy = hubConnection.CreateHubProxy("arduinoHub");
 
             _arduinoHubProxy.On<string>("receiveCommand", commandText =>
@@ -69,11 +69,11 @@ namespace ArgosDesktop
             _porta.Write("l1"); Thread.Sleep(100);
             _porta.Write("l2"); Thread.Sleep(100);
             _porta.Write("l3"); Thread.Sleep(100);
-            //_porta.Write("p1"); Thread.Sleep(100);
-            //_porta.Write("p2"); Thread.Sleep(100);
+            _porta.Write("p1"); Thread.Sleep(100);
+            _porta.Write("p2"); Thread.Sleep(100);
             _porta.Write("p3"); Thread.Sleep(100);
-            //_porta.Write("j1"); Thread.Sleep(100);
-            //_porta.Write("j2"); Thread.Sleep(100);
+            _porta.Write("j1"); Thread.Sleep(100);
+            _porta.Write("j2"); Thread.Sleep(100);
             _porta.Write("j3"); Thread.Sleep(100);
         }
 
@@ -117,10 +117,26 @@ namespace ArgosDesktop
                     labelLamp1.Text = texto;
                     pictureLamp1.Image = texto == "l10" ? Resources.lamp_off : Resources.lamp_on;
                     break;
+                case "p11":
+                case "p10":
+                    picturePorta1.Image = texto == "p10" ? Resources.porta_off : Resources.porta_on;
+                    break;
+                case "j11":
+                case "j10":
+                    pictureJanela1.Image = texto == "j10" ? Resources.janela_off : Resources.janela_on;
+                    break;
                 case "l21":
                 case "l20":
                     labelLamp2.Text = texto;
                     pictureLamp2.Image = texto == "l20" ? Resources.lamp_off : Resources.lamp_on;
+                    break;
+                case "p21":
+                case "p20":
+                    picturePorta2.Image = texto == "p20" ? Resources.porta_off : Resources.porta_on;
+                    break;
+                case "j21":
+                case "j20":
+                    pictureJanela2.Image = texto == "j20" ? Resources.janela_off : Resources.janela_on;
                     break;
                 case "l31":
                 case "l30":
@@ -174,14 +190,14 @@ namespace ArgosDesktop
         {
             _timer.Enabled = false;
             _timer.Stop();
-            Thread.Sleep(50);
+            Thread.Sleep(100);
         }
 
         private void LigaTimer()
         {
             _timer.Enabled = true;
             _timer.Start();
-            Thread.Sleep(50);
+            Thread.Sleep(100);
         }
 
         void SendCommandText(string commandText)
