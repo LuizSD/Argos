@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Android
 {
-    [Activity(Label = "Android", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Argos", MainLauncher = true, Icon = "@drawable/icon")]
     public class Main : Activity
     {
         private HubConnection _hubConnection;
@@ -31,31 +31,45 @@ namespace Android
 
         private void CreateEvents()
         {
-            FindViewById<ImageButton>(Resource.Id.imageButton1).Click += OnClickLampada1;
-            FindViewById<ImageButton>(Resource.Id.imageButton1).Click += OnClickLampada2;
-            FindViewById<ImageButton>(Resource.Id.imageButton1).Click += OnClickLampada3;
+            FindViewById<ImageButton>(Resource.Id.imageButton1).Click += (sender, e) => OnClickLampada1();
+            FindViewById<ImageButton>(Resource.Id.imageButton2).Click += (sender, e) => OnClickLampada2();
+            FindViewById<ImageButton>(Resource.Id.imageButton3).Click += (sender, e) => OnClickLampada3();
         }
 
-        private void OnClickLampada1(object sender, EventArgs eventArgs)
+        private void OnClickLampada1()
         {
-            var button = FindViewById<ImageButton>(Resource.Id.imageButton1);
+            RunOnUiThread(async () =>
+            {
+                var button = FindViewById<ImageButton>(Resource.Id.imageButton1);
 
-            bool active;
-            bool.TryParse(button.GetTag(Resource.Id.imageButton1).ToString(), out active);
-
-            //RunOnUiThread(() =>
-            //{  
-            //    var sendTask = Send(active ? "l10" : "l11");
-            //    sendTask.Wait();
-            //});
+                bool active;
+                bool.TryParse(button.GetTag(Resource.Id.imageButton1).ToString(), out active);
+                await Send(active ? "l10" : "l11");
+            });
         }
 
-        private void OnClickLampada2(object sender, EventArgs eventArgs)
+        private void OnClickLampada2()
         {
+            RunOnUiThread(async () =>
+            {
+                var button = FindViewById<ImageButton>(Resource.Id.imageButton2);
+
+                bool active;
+                bool.TryParse(button.GetTag(Resource.Id.imageButton2).ToString(), out active);
+                await Send(active ? "l20" : "l21");
+            });
         }
 
-        private void OnClickLampada3(object sender, EventArgs eventArgs)
+        private void OnClickLampada3()
         {
+            RunOnUiThread(async () =>
+            {
+                var button = FindViewById<ImageButton>(Resource.Id.imageButton3);
+
+                bool active;
+                bool.TryParse(button.GetTag(Resource.Id.imageButton3).ToString(), out active);
+                await Send(active ? "l30" : "l31");
+            });
         }
 
         private void ShowAlert(string title, string message)
@@ -81,7 +95,6 @@ namespace Android
 
             _arduinoHubProxy = _hubConnection.CreateHubProxy("arduinoHub");
             _arduinoHubProxy.On<string, string>("receiveCommand", (name, status) => RunOnUiThread(() => Receive(name, status)));
-
             await _hubConnection.Start();
         }
 
@@ -90,22 +103,31 @@ namespace Android
             var resourceLampada = status == "Active" ? Resource.Drawable.lamp_on : Resource.Drawable.lamp_off;
             var resourcePorta = status == "Active" ? Resource.Drawable.porta_on : Resource.Drawable.porta_off;
             var resourceJanela = status == "Active" ? Resource.Drawable.janela_on : Resource.Drawable.janela_off;
-
             var state = status == "Active";
 
             switch (name)
             {
                 case "l1":
-                    var button = FindViewById<ImageButton>(Resource.Id.imageButton1);
-                    button.SetImageResource(resourceLampada);
-                    button.SetTag(Resource.Id.imageButton1, state);
-                    break;
+                    {
+                        var button1 = FindViewById<ImageButton>(Resource.Id.imageButton1);
+                        button1.SetImageResource(resourceLampada);
+                        button1.SetTag(Resource.Id.imageButton1, state);
+                        break;
+                    }
                 case "l2":
-                    FindViewById<ImageButton>(Resource.Id.imageButton2).SetImageResource(resourceLampada);
-                    break;
+                    {
+                        var button2 = FindViewById<ImageButton>(Resource.Id.imageButton2);
+                        button2.SetImageResource(resourceLampada);
+                        button2.SetTag(Resource.Id.imageButton2, state);
+                        break;
+                    }
                 case "l3":
-                    FindViewById<ImageButton>(Resource.Id.imageButton3).SetImageResource(resourceLampada);
-                    break;
+                    {
+                        var button3 = FindViewById<ImageButton>(Resource.Id.imageButton3);
+                        button3.SetImageResource(resourceLampada);
+                        button3.SetTag(Resource.Id.imageButton3, state);
+                        break;
+                    }
                 case "p1":
                     FindViewById<ImageView>(Resource.Id.imageView2).SetImageResource(resourcePorta);
                     break;

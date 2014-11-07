@@ -25,7 +25,7 @@ namespace ArgosDesktop
         {
             ConnectToHub();
 
-            _timer.Interval = 100;
+            _timer.Interval = 200;
             _timer.Elapsed += TimerElapsed;
             _porta.DataReceived += DataReceivedHandler;
             _worker.DoWork += DoWork;
@@ -190,14 +190,14 @@ namespace ArgosDesktop
         {
             _timer.Enabled = false;
             _timer.Stop();
-            Thread.Sleep(100);
+            Thread.Sleep(250);
         }
 
         private void LigaTimer()
         {
+            Thread.Sleep(250);
             _timer.Enabled = true;
             _timer.Start();
-            Thread.Sleep(100);
         }
 
         void SendCommandText(string commandText)
